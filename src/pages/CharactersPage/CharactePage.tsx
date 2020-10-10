@@ -49,7 +49,7 @@ const CharactersPage = () => {
     <div>
       <span className="page-title">Marvel Characters</span>
 
-      <Search onChange={debounceEvent(searchCharacters, 500)} />
+      <Search onChange={debounceEvent(searchCharacters, 1000)} />
 
       <div className="characters-paginate">
         <Pagination
