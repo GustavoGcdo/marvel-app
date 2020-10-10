@@ -9,8 +9,6 @@ const defaultsAxios = {
   },
 };
 
-console.log(defaultsAxios);
-
 const HttpService = axios.create(defaultsAxios);
 
 export default HttpService;

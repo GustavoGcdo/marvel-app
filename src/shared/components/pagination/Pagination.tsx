@@ -76,16 +76,16 @@ const Pagination: FunctionComponent<PaginateProps> = props => {
   return (
     <ul className="pagination">
       <li className="totalItems">
-        Total de {props.totalItems} registros
+        Total of {props.totalItems} records
       </li>
       <li className={pager.currentPage === 1 || pager.currentPage === 0 ? 'disabled' : ''} onClick={() => setPage(1)}>
-        <span>Primeiro</span>
+        <span>First</span>
       </li>
       <li
         className={pager.currentPage === 1 || pager.currentPage === 0 ? 'disabled' : ''}
         onClick={() => setPage(pager.currentPage - 1)}
       >
-        <span>Anterior</span>
+        <span>Previous</span>
       </li>
       {pager.pages.map((page, index) =>
         <li key={index} className={pager.currentPage === page ? 'active' : ''} onClick={() => setPage(page)}>
@@ -98,13 +98,13 @@ const Pagination: FunctionComponent<PaginateProps> = props => {
         className={pager.currentPage === pager.totalPages ? 'disabled' : ''}
         onClick={() => setPage(pager.currentPage + 1)}
       >
-        <span>Próximo</span>
+        <span>Next</span>
       </li>
       <li
         className={pager.currentPage === pager.totalPages ? 'disabled' : ''}
         onClick={() => setPage(pager.totalPages)}
       >
-        <span>Último</span>
+        <span>Last</span>
       </li>
     </ul>
   );
