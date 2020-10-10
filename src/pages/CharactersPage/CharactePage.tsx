@@ -9,12 +9,12 @@ import Search from './Search/Search';
 import { scrollUp } from '../../layouts/MainLayout/MainLayout';
 import { debounceEvent } from '../../helpers/debounce';
 
+const paginateInit = {} as Paginate<Character>;
+
 const CharactersPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filteredName, setFilteredName] = useState<string>();
-  const [paginateResult, setPaginateResult] = useState<Paginate<Character>>(
-    {} as Paginate<Character>
-  );
+  const [paginateResult, setPaginateResult] = useState(paginateInit);
 
   const getCharactersList = useCallback(
     async (offset?: number, name?: string) => {
