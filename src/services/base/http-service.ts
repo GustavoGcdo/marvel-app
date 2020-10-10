@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 const defaultsAxios = {
-  baseURL: process.env.BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL,
   params: {
-    ts: process.env.TS,
-    apikey: process.env.PUBLIC_KEY,
-    hash: process.env.HASH,
+    ts: process.env.REACT_APP_TS,
+    apikey: process.env.REACT_APP_API_KEY,
+    hash: process.env.REACT_APP_HASH,
   },
 };
 
