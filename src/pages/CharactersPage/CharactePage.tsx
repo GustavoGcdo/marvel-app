@@ -9,6 +9,7 @@ import Search from './Search/Search';
 import { scrollUp } from '../../layouts/MainLayout/MainLayout';
 import { debounceEvent } from '../../helpers/debounce';
 import Loading from '../../shared/components/Loading/Loading';
+import NotResult from '../../shared/components/NotResult/NotResult';
 
 const paginateInit = {} as Paginate<Character>;
 
@@ -61,9 +62,13 @@ const CharactersPage = () => {
       </div>
 
       <div className="characters-items">
-        {paginateResult?.results?.map((character, index) => (
-          <CharacterItem key={index} character={character} />
-        ))}
+        {paginateResult.results?.length > 0 ? (
+          paginateResult.results?.map((character, index) => (
+            <CharacterItem key={index} character={character} />
+          ))
+        ) : (
+          <NotResult />
+        )}
       </div>
 
       <div className="characters-paginate">
@@ -74,7 +79,7 @@ const CharactersPage = () => {
           currentPage={currentPage}
         />
       </div>
-      <Loading isLoading={isLoading}/>
+      <Loading isLoading={isLoading} />
     </div>
   );
 };
