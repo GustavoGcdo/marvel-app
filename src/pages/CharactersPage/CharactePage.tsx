@@ -40,7 +40,7 @@ const CharactersPage = () => {
     <div>
       <span className="page-title">Marvel Characters</span>
 
-      <div id="characters-paginate" className="characters-paginate">
+      <div className="characters-paginate">
         <Pagination
           totalItems={paginateResult?.total}
           pageSize={paginateResult?.limit}
@@ -55,7 +55,7 @@ const CharactersPage = () => {
         ))}
       </div>
 
-      <div id="characters-paginate" className="characters-paginate">
+      <div className="characters-paginate">
         <Pagination
           totalItems={paginateResult?.total}
           pageSize={paginateResult?.limit}
