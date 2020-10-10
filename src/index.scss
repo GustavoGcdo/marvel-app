@@ -1,0 +1,13 @@
+@import './assets/scss/reset';
+
+body {
+  font-family: 'Marvel', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

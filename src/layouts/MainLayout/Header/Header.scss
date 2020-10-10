@@ -1,0 +1,13 @@
+@import '../../../assets/scss/colors.scss';
+
+.header {
+  background: $primary-color;
+  padding: 20px;
+
+  .title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+  }
+}

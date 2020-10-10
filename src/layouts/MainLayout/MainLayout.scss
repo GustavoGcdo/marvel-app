@@ -1,0 +1,17 @@
+@import '../../assets/scss/colors.scss';
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background: $secondary-color;
+  display: flex;
+  flex-direction: column;
+
+  .main-content {
+    margin: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    flex: 1 1;
+  }
+}
