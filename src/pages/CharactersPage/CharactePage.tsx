@@ -7,6 +7,7 @@ import Pagination from '../../shared/components/pagination/Pagination';
 import { Paginate } from '../../models/paginate';
 
 const CharactersPage = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [paginateResult, setPaginateResult] = useState<Paginate<Character>>(
     {} as Paginate<Character>
   );
@@ -26,6 +27,7 @@ const CharactersPage = () => {
     const response = await marvelService.getCharacters(offsetNumber);
     console.log(response.data);
     setPaginateResult(response.data);
+    setCurrentPage(page);
     scrollUp();
   };
 
@@ -38,6 +40,15 @@ const CharactersPage = () => {
     <div>
       <span className="page-title">Marvel Characters</span>
 
+      <div id="characters-paginate" className="characters-paginate">
+        <Pagination
+          totalItems={paginateResult?.total}
+          pageSize={paginateResult?.limit}
+          onChangePage={onChangePage}
+          currentPage={currentPage}
+        />
+      </div>
+
       <div className="characters-items">
         {paginateResult?.results?.map((character, index) => (
           <CharacterItem key={index} character={character} />
@@ -49,6 +60,7 @@ const CharactersPage = () => {
           totalItems={paginateResult?.total}
           pageSize={paginateResult?.limit}
           onChangePage={onChangePage}
+          currentPage={currentPage}
         />
       </div>
     </div>

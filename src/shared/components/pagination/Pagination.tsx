@@ -10,15 +10,15 @@ type PaginateProps = {
 };
 
 const Pagination: FunctionComponent<PaginateProps> = props => {
-  const pagerInit = getPager(props.totalItems, 1, props.pageSize, props.maxPages);
+  const pagerInit = getPager(props.totalItems, props.currentPage, props.pageSize, props.maxPages);
   const [pager, setPager] = useState(pagerInit);
 
   useEffect(
     () => {
-      const pagerInit = getPager(props.totalItems, 1, props.pageSize, props.maxPages);
+      const pagerInit = getPager(props.totalItems, props.currentPage, props.pageSize, props.maxPages);
       setPager(pagerInit);
     },
-    [props.totalItems, props.pageSize, props.maxPages]
+    [props.totalItems, props.pageSize, props.maxPages, props.currentPage]
   );
 
   function setPage(page: number) {
