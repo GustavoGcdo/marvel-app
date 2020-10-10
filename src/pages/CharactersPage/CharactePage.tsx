@@ -1,44 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import marvelService from '../../services/marvel.service';
 import { Character } from '../../models/character';
 import './CharacterPage.scss';
 import CharacterItem from './CharacterItem/CharacterItem';
 import Pagination from '../../shared/components/pagination/Pagination';
 import { Paginate } from '../../models/paginate';
+import Search from './Search/Search';
+import { scrollUp } from '../../layouts/MainLayout/MainLayout';
+import { debounceEvent } from '../../helpers/debounce';
 
 const CharactersPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [filteredName, setFilteredName] = useState<string>();
   const [paginateResult, setPaginateResult] = useState<Paginate<Character>>(
     {} as Paginate<Character>
   );
 
-  useEffect(() => {
-    const getCharactersList = async () => {
-      const response = await marvelService.getCharacters();
-      console.log(response.data);
+  const getCharactersList = useCallback(
+    async (offset?: number, name?: string) => {
+      const response = await marvelService.getCharacters(offset, name);
       setPaginateResult(response.data);
-    };
+    },
+    []
+  );
 
+  useEffect(() => {
     getCharactersList();
-  }, []);
+  }, [getCharactersList]);
 
   const onChangePage = async (page: number) => {
     const offsetNumber = (page - 1) * paginateResult?.limit;
-    const response = await marvelService.getCharacters(offsetNumber);
-    console.log(response.data);
-    setPaginateResult(response.data);
+    await getCharactersList(offsetNumber, filteredName);
     setCurrentPage(page);
     scrollUp();
   };
 
-  const scrollUp = () => {
-    const containerElem = document.getElementById('main-content');
-    containerElem?.scrollTo({ top: 0, behavior: 'smooth' });
+  const searchCharacters = async (name: string) => {
+    await getCharactersList(0, name);
+    setFilteredName(name);
+    setCurrentPage(1);
   };
 
   return (
     <div>
       <span className="page-title">Marvel Characters</span>
+
+      <Search onChange={debounceEvent(searchCharacters, 500)} />
 
       <div className="characters-paginate">
         <Pagination
