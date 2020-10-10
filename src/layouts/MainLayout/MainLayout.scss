@@ -6,6 +6,7 @@
   background: $secondary-color;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   .main-content {
     margin: 10px;
@@ -13,7 +14,7 @@
     background: white;
     border-radius: 5px;
     flex: 1 1;
-    overflow-x: auto;
+    overflow-x: auto;    
 
     
     &::-webkit-scrollbar {

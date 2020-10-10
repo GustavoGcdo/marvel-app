@@ -8,6 +8,7 @@ import { Paginate } from '../../models/paginate';
 import Search from './Search/Search';
 import { scrollUp } from '../../layouts/MainLayout/MainLayout';
 import { debounceEvent } from '../../helpers/debounce';
+import Loading from '../../shared/components/Loading/Loading';
 
 const paginateInit = {} as Paginate<Character>;
 
@@ -15,11 +16,14 @@ const CharactersPage = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filteredName, setFilteredName] = useState<string>();
   const [paginateResult, setPaginateResult] = useState(paginateInit);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getCharactersList = useCallback(
     async (offset?: number, name?: string) => {
+      setIsLoading(true);
       const response = await marvelService.getCharacters(offset, name);
       setPaginateResult(response.data);
+      setIsLoading(false);
     },
     []
   );
@@ -70,6 +74,7 @@ const CharactersPage = () => {
           currentPage={currentPage}
         />
       </div>
+      <Loading isLoading={isLoading}/>
     </div>
   );
 };

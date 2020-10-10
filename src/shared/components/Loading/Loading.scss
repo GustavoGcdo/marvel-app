@@ -1,0 +1,23 @@
+@import '../../../assets/scss/colors.scss';
+
+.loading-container {
+  background: #202020e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: fixed;
+  top: 74px;
+  bottom: 10px;
+  right: 10px;
+  overflow-x: auto;
+  border-radius: 6px;
+  left: 10px;
+  z-index: 10;  
+  transition: .4s;
+  
+
+  .loading-text {
+    font-size: 1.5em;
+  }
+}
