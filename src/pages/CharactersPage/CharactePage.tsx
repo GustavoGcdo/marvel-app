@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import marvelService from '../../services/marvel.service';
 import { Character } from '../../models/character';
 import './CharacterPage.scss';
+import CharacterItem from './CharacterItem/CharacterItem';
 
 const CharactersPage = () => {
   const [charactersList, setCharactersList] = useState<Character[]>([]);
@@ -18,18 +19,11 @@ const CharactersPage = () => {
 
   return (
     <div>
-      <div>this is a characters page</div>
+      <span className="page-title">Marvel Characters</span>
 
-      <div className="characters-grid">
-        {charactersList.map((character) => (
-          <div className="character">
-            <div>{character.name}</div>
-            <div>{character.description}</div>
-            <img
-              src={`${character.thumbnail.path}/portrait_fantastic.${character.thumbnail.extension}`}
-              alt={character.name}
-            />
-          </div>
+      <div className="characters-items">
+        {charactersList.map((character, index) => (
+          <CharacterItem key={index} character={character} />
         ))}
       </div>
     </div>

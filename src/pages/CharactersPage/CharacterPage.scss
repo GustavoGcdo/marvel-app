@@ -1,12 +1,14 @@
-.characters-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.page-title {
+  display: block;
+  font-size: 2em;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.characters-items {
+  display: flex;
   flex-wrap: wrap;
   margin-top: 30px;
-  flex: 1;
-  overflow-x: auto;
-
-  .character {
-    background: lightgray;
-  }
+  gap: 20px;
+  justify-content: center;  
 }
