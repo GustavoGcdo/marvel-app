@@ -1,0 +1,32 @@
+@import '../../../assets/scss/colors.scss';
+
+ul.pagination {
+  margin-top: 10px;
+  display: block;
+
+  li {
+    display: inline-block;
+    margin: 3px;
+    padding: 6px 8px;
+    border-radius: 3px;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  li.active {
+    background: $secondary-color;
+    color: white;
+  }
+
+  li.disabled {
+    background: #e6e6e6;
+    user-select: none;
+    cursor: not-allowed;
+  }
+
+  .totalItems {
+    border: 1px solid black;
+    user-select: none;
+    cursor: inherit;
+  }
+}

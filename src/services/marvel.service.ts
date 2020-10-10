@@ -5,8 +5,8 @@ import { Character } from '../models/character';
 
 class MarvelService {
 
-    public getCharacters(): Promise<MarvelResponse<Paginate<Character>>> {
-        return HttpService.get('/characters')
+    public getCharacters(offset = 0): Promise<MarvelResponse<Paginate<Character>>> {
+        return HttpService.get(`/characters?offset=${offset}`)
             .then(res => res.data)
             .catch((err) => { throw Error(err) });
     }
