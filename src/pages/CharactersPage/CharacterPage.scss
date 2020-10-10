@@ -1,0 +1,12 @@
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  flex-wrap: wrap;
+  margin-top: 30px;
+  flex: 1;
+  overflow-x: auto;
+
+  .character {
+    background: lightgray;
+  }
+}
