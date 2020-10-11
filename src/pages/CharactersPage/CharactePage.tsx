@@ -3,7 +3,7 @@ import marvelService from '../../services/marvel.service';
 import { Character } from '../../models/character';
 import './CharacterPage.scss';
 import CharacterItem from './CharacterItem/CharacterItem';
-import Pagination from '../../shared/components/Pagination/Pagination';
+import Pagination from '../../shared/components/PaginationComponent/Pagination';
 import { Paginate } from '../../models/paginate';
 import Search from './Search/Search';
 import { scrollUp } from '../../layouts/MainLayout/MainLayout';
