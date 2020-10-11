@@ -29,4 +29,50 @@ ul.pagination {
     user-select: none;
     cursor: inherit;
   }
+
+  .currentPage {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+
+    li:not(.action) {
+      display: none;
+    }
+
+    li.action {
+      font-size: 1.3em;
+    }
+
+    li.totalItems {
+      font-size: 1.3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      grid-column: 1 / 5;
+      padding: 10px;
+    }
+
+    li.currentPage {
+      grid-column: 1 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      margin-bottom: 12px;
+      border: 1px solid lightgray;
+      background: #202020;
+      color: white;
+      border-radius: 5px;
+      padding: 10px;
+
+      .numPage {
+        margin-left: 5px;
+        display: block;        
+      }
+    }
+  }
 }
