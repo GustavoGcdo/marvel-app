@@ -2,7 +2,9 @@
 
 .header {
   background: $primary-color;
-  padding: 20px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
 
   .title {
     font-size: 1.6em;
@@ -10,4 +12,12 @@
     color: white;
     text-transform: uppercase;
   }
+}
+.go-back {
+  display: block;
+  padding: 3px 10px;
+  margin-right: 10px;
+  border-radius: 23px;
+  color: white;
+  cursor: pointer;
 }

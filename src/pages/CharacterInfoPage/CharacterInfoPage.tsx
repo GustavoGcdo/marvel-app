@@ -46,7 +46,9 @@ const CharacterInfoPage: React.FC = () => {
 
   return (
     <div>
-      <span className="page-title">Info Character</span>
+      <div>
+        <span className="page-title">Info Character</span>
+      </div>
       <div className="character-info-container">
         <div className="character-info-image-container">
           <div

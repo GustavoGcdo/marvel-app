@@ -1,13 +1,8 @@
 import React from 'react';
-import MainLayout from './layouts/MainLayout/MainLayout';
 import Routes from './Routes';
 
 function App() {
-  return (
-    <MainLayout>
-      <Routes />
-    </MainLayout>
-  );
+  return <Routes />;
 }
 
 export default App;
