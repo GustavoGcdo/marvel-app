@@ -2,9 +2,10 @@ import React from 'react';
 import { Character } from '../../../models/character';
 import './CharacterItem.scss';
 
-type Props = { character: Character };
+type CharacterProps = { character: Character };
+type Props = CharacterProps &  React.HTMLAttributes<HTMLDivElement>;
 
-const CharacterItem: React.FC<Props> = ({ character }) => {
+const CharacterItem: React.FC<Props> = ({ character, ...props }) => {
   const getDescriptionText = () => {
     const defaultText = 'No description informed';
     const hasDescription = character.description.length > 0;
@@ -12,7 +13,7 @@ const CharacterItem: React.FC<Props> = ({ character }) => {
   };
   
   return (
-    <div className="character">
+    <div className="character" {...props}>
       <div
         className="character-image"
         style={{
