@@ -6,7 +6,7 @@ import CharactersPage from './pages/CharactersPage/CharactePage';
 const Routes: React.FC = () => {
   return (
     <BrowserRouter>
-      <Redirect exact path="/" to="/characters/1009718" />
+      <Redirect exact path="/" to="/characters" />
       <Switch>
         <Route component={CharactersPage} exact path="/characters" />
         <Route component={CharacterInfoPage} exact path="/characters/:id" />
