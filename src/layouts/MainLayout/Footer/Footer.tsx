@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          created by Gustavo
+          Created by Gustavo
         </a>
       </span>
     </div>
