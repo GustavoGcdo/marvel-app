@@ -59,7 +59,7 @@ const CharacterInfoPage: React.FC = () => {
           />
         </div>
 
-        <div className="character-info">
+        <div className="character-info-area">
           <div className="info-section">
             <span className="label">Name:</span>
             <span className="value">{characterActive.name}</span>
