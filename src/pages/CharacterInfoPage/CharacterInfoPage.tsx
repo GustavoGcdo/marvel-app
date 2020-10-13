@@ -7,6 +7,7 @@ import { Paginate } from '../../models/paginate';
 import Loading from '../../shared/components/Loading/Loading';
 import ComicItem from './ComicItem/ComicItem';
 import { Character } from '../../models/character';
+import NotResult from '../../shared/components/NotResult/NotResult';
 
 const paginateInit = {} as Paginate<Comic>;
 const characterInit = {} as Character;
@@ -28,6 +29,16 @@ const CharacterInfoPage: React.FC = () => {
 
     setIsLoading(false);
   }, []);
+
+  const getDescriptionText = () => {
+    const defaultText = 'No description informed';
+    const hasDescription = characterActive?.description?.length > 0;
+    return hasDescription ? characterActive.description : defaultText;
+  };
+
+  const hasResults = () => {
+    return paginateResult.results?.length > 0;
+  };
 
   useEffect(() => {
     getCharacterAndComicsList(id);
@@ -53,16 +64,18 @@ const CharacterInfoPage: React.FC = () => {
           </div>
           <div className="info-section">
             <span className="label">Description:</span>
-            <span className="value">{characterActive.description}</span>
+            <span className="value">{getDescriptionText()}</span>
           </div>
         </div>
       </div>
       <div>
         <span className="page-title">Some Comics</span>
         <div className="character-comics-list">
-          {paginateResult?.results?.map((comic) => (
-            <ComicItem comic={comic} />
-          ))}
+          {hasResults() ? (
+            paginateResult?.results?.map((comic) => <ComicItem comic={comic} />)
+          ) : (
+            <NotResult />
+          )}
         </div>
 
         <Loading isLoading={isLoading} />
