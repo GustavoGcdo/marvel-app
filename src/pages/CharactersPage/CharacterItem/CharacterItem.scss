@@ -57,4 +57,21 @@
     height: 261px;
     background-size: cover;
   }
+
+  .actions {
+    width: 100%;
+    padding: 6px;
+
+    .btn-action {
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      width: 100%;
+      transition: 0.4s;
+      background: $secondary-color;
+      color: white;
+      cursor: pointer;
+    }
+  }
 }

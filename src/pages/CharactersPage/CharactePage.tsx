@@ -14,8 +14,7 @@ import Search from './Search/Search';
 
 const paginateInit = {} as Paginate<Character>;
 
-const CharactersPage = () => {
-  const history = useHistory();
+const CharactersPage = () => {  
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filteredName, setFilteredName] = useState<string>();
   const [paginateResult, setPaginateResult] = useState(paginateInit);
@@ -73,9 +72,6 @@ const CharactersPage = () => {
             <CharacterItem
               key={index}
               character={character}
-              onClick={() => {
-                history.push(`/characters/${character.id}`)
-              }}
             />
           ))
         ) : (
