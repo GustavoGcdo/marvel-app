@@ -46,6 +46,10 @@ const CharactersPage = () => {
     setCurrentPage(1);
   };
 
+  const hasResults = () => {
+    return paginateResult.results?.length > 0;
+  };
+
   return (
     <div>
       <span className="page-title">Marvel Characters</span>
@@ -62,7 +66,7 @@ const CharactersPage = () => {
       </div>
 
       <div className="characters-items">
-        {paginateResult.results?.length > 0 ? (
+        {hasResults() ? (
           paginateResult.results?.map((character, index) => (
             <CharacterItem key={index} character={character} />
           ))
