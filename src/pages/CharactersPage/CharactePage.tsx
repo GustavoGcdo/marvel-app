@@ -1,19 +1,21 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import marvelService from '../../services/marvel.service';
-import { Character } from '../../models/character';
-import './CharacterPage.scss';
-import CharacterItem from './CharacterItem/CharacterItem';
-import Pagination from '../../shared/components/PaginationComponent/Pagination';
-import { Paginate } from '../../models/paginate';
-import Search from './Search/Search';
-import { scrollUp } from '../../layouts/MainLayout/MainLayout';
+import { useHistory } from 'react-router-dom';
 import { debounceEvent } from '../../helpers/debounce';
+import { scrollUp } from '../../layouts/MainLayout/MainLayout';
+import { Character } from '../../models/character';
+import { Paginate } from '../../models/paginate';
+import marvelService from '../../services/marvel.service';
 import Loading from '../../shared/components/Loading/Loading';
 import NotResult from '../../shared/components/NotResult/NotResult';
+import Pagination from '../../shared/components/PaginationComponent/Pagination';
+import CharacterItem from './CharacterItem/CharacterItem';
+import './CharacterPage.scss';
+import Search from './Search/Search';
 
 const paginateInit = {} as Paginate<Character>;
 
 const CharactersPage = () => {
+  const history = useHistory();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filteredName, setFilteredName] = useState<string>();
   const [paginateResult, setPaginateResult] = useState(paginateInit);
@@ -68,7 +70,13 @@ const CharactersPage = () => {
       <div className="characters-items">
         {hasResults() ? (
           paginateResult.results?.map((character, index) => (
-            <CharacterItem key={index} character={character} />
+            <CharacterItem
+              key={index}
+              character={character}
+              onClick={() => {
+                history.push(`/characters/${character.id}`)
+              }}
+            />
           ))
         ) : (
           <NotResult />

@@ -3,6 +3,7 @@ import { MarvelResponse } from '../models/response';
 import { Paginate } from '../models/paginate';
 import { Character } from '../models/character';
 import { stringify } from 'querystring';
+import { Comic } from '../models/comic';
 
 class MarvelService {
 
@@ -14,8 +15,20 @@ class MarvelService {
         }
 
         const queryString = stringify(params);
-        
+
         return HttpService.get(`/characters?${queryString}`)
+            .then(res => res.data)
+            .catch((err) => { throw Error(err) });
+    }
+
+    public getCharacterById(characterId: string): Promise<MarvelResponse<Paginate<Character>>> {
+        return HttpService.get(`/characters/${characterId}`)
+            .then(res => res.data)
+            .catch((err) => { throw Error(err) });
+    }
+
+    public getCharactersComics(characterId: string): Promise<MarvelResponse<Paginate<Comic>>> {
+        return HttpService.get(`/characters/${characterId}/comics`)
             .then(res => res.data)
             .catch((err) => { throw Error(err) });
     }

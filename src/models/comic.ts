@@ -1,15 +1,14 @@
 import { Thumbnail } from './thumbnail';
 
-export interface Character {
+export interface Comic {
     id: number;
-    name: string;
+    title: string;
     description: string;
-    modified: string;
+    pageCount: number;
     thumbnail: Thumbnail;
-    resourceURI: string;
-    comics: any[];
-    series: any[];
+    images: Thumbnail[];
+    creators: any[];
+    characters: any[];
     stories: any[];
     events: any[];
-    urls: any[];
 }

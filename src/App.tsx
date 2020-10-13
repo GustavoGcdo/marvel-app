@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLayout from './layouts/MainLayout/MainLayout';
-import CharactersPage from './pages/CharactersPage/CharactePage';
+import Routes from './Routes';
 
 function App() {
   return (
     <MainLayout>
-      <CharactersPage />
+      <Routes />
     </MainLayout>
   );
 }
