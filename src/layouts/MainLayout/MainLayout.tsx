@@ -1,6 +1,8 @@
 import React from 'react';
 import './MainLayout.scss';
 import Header from './Header/Header';
+import Copyright from './Copyright/Copyright';
+import Footer from './Footer/Footer';
 
 export const scrollUp = () => {
   const containerElem = document.getElementById('main-content');
@@ -14,6 +16,7 @@ const MainLayout: React.FC = ({ children }) => {
       <main id="main-content" className="main-content">
         {children}
       </main>
+      <Footer/>
     </div>
   );
 };

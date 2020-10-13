@@ -1,7 +1,6 @@
 @import '../../assets/scss/colors.scss';
 
 .main-container {
-  width: 100vw;
   height: 100vh;
   background: $secondary-color;
   display: flex;
@@ -14,23 +13,20 @@
     background: white;
     border-radius: 5px;
     flex: 1 1;
-    overflow-x: auto;    
+    overflow-x: auto;
+    position: relative;
 
-    
     &::-webkit-scrollbar {
       width: 9px;
     }
-
 
     &::-webkit-scrollbar-track {
       background: #d8d8d8;
     }
 
-
     &::-webkit-scrollbar-thumb {
-      background: #202020ab;      
+      background: #202020ab;
     }
-
 
     &::-webkit-scrollbar-thumb:hover {
       background: #555;
