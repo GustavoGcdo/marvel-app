@@ -1,8 +1,7 @@
 import React from 'react';
-import './MainLayout.scss';
-import Header from './Header/Header';
-import Copyright from './Copyright/Copyright';
 import Footer from './Footer/Footer';
+import Header from './Header/Header';
+import './MainLayout.scss';
 
 export const scrollUp = () => {
   const containerElem = document.getElementById('main-content');
