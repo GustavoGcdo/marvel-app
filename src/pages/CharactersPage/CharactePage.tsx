@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { debounceEvent } from '../../helpers/debounce';
 import { scrollUp } from '../../layouts/MainLayout/MainLayout';
 import { Character } from '../../models/character';

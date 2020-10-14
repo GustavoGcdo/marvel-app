@@ -74,7 +74,7 @@ const CharacterInfoPage: React.FC = () => {
         <span className="page-title">Some Comics</span>
         <div className="character-comics-list">
           {hasResults() ? (
-            paginateResult?.results?.map((comic) => <ComicItem comic={comic} />)
+            paginateResult?.results?.map((comic) => <ComicItem  key={comic.id} comic={comic} />)
           ) : (
             <NotResult />
           )}
