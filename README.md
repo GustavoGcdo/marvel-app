@@ -21,10 +21,10 @@ See project live on: [marvel-app](https://marvel-app-rho.vercel.app/)
 
 ### Screenshots
 
-![home page](https://ibb.co/xHs4Mnm)
+![home page](./screenshots/home.png)
 
-![character info](https://ibb.co/D7CcWP4)
+![character info](./screenshots/character-info.png)
 
-![mobile home page](https://ibb.co/1dwbXnm)
+![mobile home page](./screenshots/mobile-home.png)
 
-![mobile character info](https://ibb.co/kc6wkk5)
+![mobile character info](./screenshots/mobile-character-info.png)
